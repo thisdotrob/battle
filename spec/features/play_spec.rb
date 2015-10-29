@@ -3,7 +3,7 @@ feature '/play' do
     sign_in_and_play
     expect(page).to have_content 'Player1 vs. Player2'
   end
-  scenario 'displays Player 2\'s hit points' do
+  scenario 'displays Player 2\'s hitpoints' do
     sign_in_and_play
     expect(page).to have_content 'Player2: 100HP'
   end

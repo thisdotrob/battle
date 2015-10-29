@@ -14,4 +14,10 @@ describe Player do
       expect(player.hitpoints).to eq (Player::DEF_HITPOINTS)
     end
   end
+
+  context '#damage' do
+    it 'reduces hitpoints by 10' do
+      expect{player.damage}.to change(player, :hitpoints).by(-10)
+    end
+  end
 end
