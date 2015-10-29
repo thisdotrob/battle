@@ -25,7 +25,7 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     session[:attacked?] = true
-    $player2.damage
+    $player1.attack($player2)
     redirect '/play'
   end
 
