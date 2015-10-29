@@ -1,8 +1,8 @@
 require 'sinatra/base'
 
-class App < Sinatra::Base
+class Battle < Sinatra::Base
   get '/' do
-    'Hello App!'
+    'Hello Battle!'
   end
 
   # start the server if ruby file executed directly
