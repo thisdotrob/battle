@@ -14,8 +14,8 @@ feature '/play' do
   end
   scenario 'Displays reduced hitpoints after attack on Player 2' do
     sign_in_and_play
-    click_button('Attack')
+    5.times { click_button('Attack') }
     expect(page).to_not have_content 'Player2: 100HP'
-    expect(page).to have_content 'Player2: 90HP'
+    expect(page).to have_content 'Player2: 50HP'
   end
 end
