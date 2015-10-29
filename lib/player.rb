@@ -8,4 +8,12 @@ class Player
     @hitpoints = DEF_HITPOINTS
   end
 
+  def damage
+    self.hitpoints -= 10
+  end
+
+  private
+
+  attr_writer :hitpoints
+
 end
