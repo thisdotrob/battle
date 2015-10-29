@@ -1,9 +1,9 @@
-<%= @player1_name %> vs. <%= @player2_name %>
+<p><%= @player1_name %> vs. <%= @player2_name %></p>
 
-<%= @player2_name %>: 100HP
+<p><%= @player2_name %>: 100HP</p>
 
 <%if @attacked %>
-<%= @player1_name %> attacked <%= @player2_name %>!
+<p><%= @player1_name %> attacked <%= @player2_name %>!</p>
 <% end %>
 
 <form action='/attack' method='gets'>
