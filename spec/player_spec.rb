@@ -10,7 +10,7 @@ describe Player do
   end
 
   context '#hitpoints' do
-    it 'returns the hitpoints' do
+    it 'returns the default hitpoints' do
       expect(player.hitpoints).to eq (Player::DEF_HITPOINTS)
     end
   end
