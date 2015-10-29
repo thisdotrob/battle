@@ -2,6 +2,7 @@ require 'player'
 
 describe Player do
   subject(:player1){ Player.new(:name) }
+  let(:player2){ Player.new(:name) }
 
   context '#name' do
     it 'returns the name' do
