@@ -35,4 +35,25 @@ describe Game do
     end
   end
 
+  context 'delegator' do
+    it 'delegates #player1_name to Player 1 object' do
+      expect(player1).to receive(:name)
+      game.player1_name
+    end
+    it 'delegates #player2_name to Player 2 object' do
+      expect(player2).to receive(:name)
+      game.player2_name
+    end
+    it 'delegates #player2_hitpoints to Player 2 object' do
+      expect(player2).to receive(:hitpoints)
+      game.player2_hitpoints
+    end
+    it 'delegates #current_player_name to the current player object' do
+      allow(Kernel).to receive(:rand) { 0.501 }
+      seeded_game = Game.new(player1, player2)
+      expect(player1).to receive(:name)
+      game.current_player_name
+    end
+  end
+
 end
