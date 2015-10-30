@@ -12,6 +12,8 @@ class Player
     self.hitpoints -= 10
   end
 
+
+
   private
 
   attr_writer :hitpoints

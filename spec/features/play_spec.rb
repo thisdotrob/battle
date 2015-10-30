@@ -48,4 +48,19 @@ feature '/play' do
     end
   end
 
+context 'game over' do
+  it 'returns error when player reaches 0 points' do
+    allow(Kernel).to receive(:rand) { 0.499 }
+    sign_in_and_play
+    19.times { click_button('Attack') }
+    expect(current_path).to eql("/game-over")
+  end
+  it 'should return who lost' do
+    allow(Kernel).to receive(:rand) { 0.499 }
+    sign_in_and_play
+    19.times { click_button('Attack') }
+    expect(page).to have_content "Player2 has lost the game!"
+  end
+end
+
 end

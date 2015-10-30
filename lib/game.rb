@@ -26,6 +26,10 @@ class Game
     @attacked
   end
 
+  def game_over?
+      true if @current_player.hitpoints == 0
+  end
+
   private
 
   attr_writer :current_player

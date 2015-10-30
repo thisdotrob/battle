@@ -26,6 +26,7 @@ describe Game do
       seeded_game = described_class.new(player1, player2)
       expect(seeded_game.current_player).to eq (player2)
     end
+
   end
 
   context '#attack' do
@@ -33,8 +34,9 @@ describe Game do
       allow(Kernel).to receive(:rand) { 0.501 }
     end
     it 'calls #damage on the player' do
+      seeded_game = described_class.new(player1, player2)
       expect(player2).to receive(:damage)
-      game.attack
+      seeded_game.attack
     end
     it 'switches turns' do
       allow(player2).to receive(:damage)
@@ -66,6 +68,15 @@ describe Game do
       seeded_game = described_class.new(player1, player2)
       expect(player1).to receive(:name)
       seeded_game.current_player_name
+    end
+  end
+
+  context '#game_over?' do
+    it 'should end the game when 0 points' do
+      allow(Kernel).to receive(:rand) { 0.501 }
+      seeded_game = described_class.new(player1, player2)
+      allow(player1).to receive(:hitpoints){0}
+      expect(seeded_game.game_over?).to eq true
     end
   end
 
