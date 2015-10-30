@@ -17,9 +17,7 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player1_name = $game.player1_name
-    @player2_name = $game.player2_name
-    @player2_hitpoints = $game.player2_hitpoints
+    @game = $game
     @attacked = session[:attacked?]
     erb :play
   end
