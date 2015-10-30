@@ -26,7 +26,7 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     session[:attacked?] = true
-    Game.new.attack
+    $game.attack
     redirect '/play'
   end
 
