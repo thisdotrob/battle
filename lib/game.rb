@@ -18,7 +18,7 @@ class Game
 
   def attack
     switch_turns
-    player2.damage
+    current_player.damage
     @attacked = true
   end
 

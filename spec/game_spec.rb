@@ -29,12 +29,14 @@ describe Game do
   end
 
   context '#attack' do
+    before :each do
+      allow(Kernel).to receive(:rand) { 0.501 }
+    end
     it 'calls #damage on the player' do
       expect(player2).to receive(:damage)
       game.attack
     end
     it 'switches turns' do
-      allow(Kernel).to receive(:rand) { 0.501 }
       allow(player2).to receive(:damage)
       seeded_game = described_class.new(player1, player2)
       seeded_game.attack
