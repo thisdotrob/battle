@@ -33,6 +33,12 @@ feature '/play' do
       expect(page).to_not have_content 'Player2: 100HP'
       expect(page).to have_content 'Player2: 50HP'
     end
+    scenario 'switches users' do
+      allow(Kernel).to receive(:rand) {0.501}
+      sign_in_and_play
+      click_button('Attack')
+      expect(page).to have_content 'Player2\'s turn'
+    end
   end
-  
+
 end
