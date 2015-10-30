@@ -33,6 +33,13 @@ describe Game do
       expect(player2).to receive(:damage)
       game.attack
     end
+    it 'switches turns' do
+      allow(Kernel).to receive(:rand) { 0.501 }
+      allow(player2).to receive(:damage)
+      seeded_game = Game.new(player1, player2)
+      seeded_game.attack
+      expect(seeded_game.current_player).to eq (player2)
+    end
   end
 
   context 'delegator' do
@@ -52,7 +59,7 @@ describe Game do
       allow(Kernel).to receive(:rand) { 0.501 }
       seeded_game = Game.new(player1, player2)
       expect(player1).to receive(:name)
-      game.current_player_name
+      seeded_game.current_player_name
     end
   end
 
