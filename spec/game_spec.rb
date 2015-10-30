@@ -47,6 +47,10 @@ describe Game do
       expect(player1).to receive(:name)
       game.player1_name
     end
+    it 'delegates #player1_hitpoints to Player 1 object' do
+      expect(player1).to receive(:hitpoints)
+      game.player1_hitpoints
+    end
     it 'delegates #player2_name to Player 2 object' do
       expect(player2).to receive(:name)
       game.player2_name

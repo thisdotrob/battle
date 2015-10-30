@@ -2,6 +2,8 @@
 
 <p><%= @game.current_player_name %>'s turn</p>
 
+<p><%= @game.player1_name %>: <%= @game.player1_hitpoints %>HP</p>
+
 <p><%= @game.player2_name %>: <%= @game.player2_hitpoints %>HP</p>
 
 <%if @game.attacked? %>

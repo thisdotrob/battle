@@ -15,10 +15,11 @@ feature '/play' do
       sign_in_and_play
       expect(page).to have_content 'Player1 vs. Player2'
     end
-    scenario 'displays Player 2\'s hitpoints' do
+    scenario 'displays both players hitpoints' do
       sign_in_and_play
-      expect(page).to have_content 'Player2: 100HP'
+      expect(page).to have_content 'Player1: 100HP Player2: 100HP'
     end
+
   end
 
   context 'post attack' do
