@@ -15,6 +15,19 @@ describe Game do
     end
   end
 
+  context '#current_turn' do
+    it 'sets current turn to Player 1 with probability 0.5' do
+      allow(Kernel).to receive(:rand) { 0.501 }
+      seeded_game = Game.new(player1, player2)
+      expect(seeded_game.current_player).to eq (player1)
+    end
+    it 'sets current turn to Player 2 with probability 0.5' do
+      allow(Kernel).to receive(:rand) { 0.499 }
+      seeded_game = Game.new(player1, player2)
+      expect(seeded_game.current_player).to eq (player2)
+    end
+  end
+
   context '#attack' do
     it 'calls #damage on the player' do
       expect(player2).to receive(:damage)
