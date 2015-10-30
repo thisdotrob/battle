@@ -56,7 +56,7 @@ context 'game over' do
     expect(current_path).to eql("/game-over")
   end
   it 'should return who lost' do
-    allow(Kernel).to receive(:rand) { 0.499 }
+    allow(Kernel).to receive(:rand) {0.501}
     sign_in_and_play
     19.times { click_button('Attack') }
     expect(page).to have_content "Player2 has lost the game!"
