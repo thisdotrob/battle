@@ -16,6 +16,7 @@ class Game
   end
 
   def attack
+    switch_turns
     player2.damage
     @attacked = true
   end
@@ -25,6 +26,16 @@ class Game
   end
 
   private
+
+  attr_writer :current_player
+
+  def switch_turns
+    if @current_player == player1
+      @current_player = player2
+    else
+      @current_player = player1
+    end
+  end
 
   def set_current_player
     @current_player = Kernel.rand > 0.5 ? self.player1 : self.player2
