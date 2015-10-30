@@ -1,4 +1,14 @@
 feature '/play' do
+  scenario 'player 1 has first turn 50% of the time' do
+    allow(Kernel).to receive(:rand) {0.501}
+    sign_in_and_play
+    expect(page).to have_content 'Player1\'s turn'
+  end
+  scenario 'player 2 has first turn 50% of the time' do
+    allow(Kernel).to receive(:rand) {0.499}
+    sign_in_and_play
+    expect(page).to have_content 'Player2\'s turn'
+  end
   scenario 'displays names' do
     sign_in_and_play
     expect(page).to have_content 'Player1 vs. Player2'
