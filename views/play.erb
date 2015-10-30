@@ -2,7 +2,7 @@
 
 <p><%= @game.player2_name %>: <%= @game.player2_hitpoints %>HP</p>
 
-<%if @attacked %>
+<%if @game.attacked? %>
 <p><%= @game.player1_name %> attacked <%= @game.player2_name %>!</p>
 <% end %>
 

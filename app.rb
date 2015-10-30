@@ -18,12 +18,10 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = $game
-    @attacked = session[:attacked?]
     erb :play
   end
 
   get '/attack' do
-    session[:attacked?] = true
     $game.attack
     redirect '/play'
   end
