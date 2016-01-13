@@ -1,4 +1,4 @@
-feature '/play' do
+feature 'Features' do
 
   context 'setup' do
     scenario 'player 1 has first turn 50% of the time' do
